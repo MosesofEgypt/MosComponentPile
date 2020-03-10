@@ -2,7 +2,7 @@
 
 
 [AddComponentMenu("Camera/Splitscreen Camera 2D")]
-public class SplitscreenCamera2D : MonoBehaviour {
+public class SplitscreenCamera : MonoBehaviour {
     public enum ScreenNumber {
         first,
         second,
@@ -19,7 +19,7 @@ public class SplitscreenCamera2D : MonoBehaviour {
 
     public Vector2Int joinedCameraPadding = new Vector2Int(1, 1);
 
-    public static SplitscreenCamera2D[] joinedCameras = new SplitscreenCamera2D[4] { null, null, null, null };
+    public static SplitscreenCamera[] joinedCameras = new SplitscreenCamera[4] { null, null, null, null };
 
     [SerializeField]
     Rect[] cameraRects4Player = new Rect[4] {
@@ -86,7 +86,7 @@ public class SplitscreenCamera2D : MonoBehaviour {
         }
 
         joinedCameras[(int)screenNumber] = this;
-        foreach (SplitscreenCamera2D camera in joinedCameras)
+        foreach (SplitscreenCamera camera in joinedCameras)
             if (camera) {
                 camera.vertical2PRects = vertical2PRects;
                 camera.long3PRect = long3PRect;
@@ -104,7 +104,7 @@ public class SplitscreenCamera2D : MonoBehaviour {
         joinedCameras[(int)screenNumber] = null;
 
         // force the other cameras to recalculate their viewing rectangle.
-        foreach (SplitscreenCamera2D otherCamera in joinedCameras)
+        foreach (SplitscreenCamera otherCamera in joinedCameras)
             if (otherCamera)
                 otherCamera.InitializeViewingRectangle();
     }
