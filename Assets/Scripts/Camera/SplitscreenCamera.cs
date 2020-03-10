@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-[AddComponentMenu("Camera/Splitscreen Camera 2D")]
+[AddComponentMenu("Camera/Splitscreen Camera")]
 public class SplitscreenCamera : MonoBehaviour {
     public enum ScreenNumber {
         first,
