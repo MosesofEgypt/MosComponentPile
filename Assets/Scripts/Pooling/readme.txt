@@ -1,0 +1,3 @@
+PrefabPoolManager is a simple manager for a poolable prefabs. Simple attach one instance of it to something persistant in your scene, and load it up with prefabs you expect to use. If you want to fill the pool dynamically, you can call its AddPool method and pass it a GameObject to treat as a prefab. This should also be a threadsafe component, but I never got around to testing that.
+
+Simply call GetInstanceOf and pass it the prefab you want an instance of, and a position to enable it at. When done with it, call StoreInstanceOf and pass it the prefab and the instance, and it'll return it to the pool. There are overloads for those methods which serve different needs.
